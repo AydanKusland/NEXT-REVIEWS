@@ -1,5 +1,6 @@
+'use client'
+
 const HomePage = () => {
-	console.log('[HomePage] Rendering')
 	return (
 		<>
 			<h1>Indie Gamer</h1>
