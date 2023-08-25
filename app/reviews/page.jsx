@@ -1,19 +1,33 @@
 import Link from 'next/link'
+import Heading from '@/components/Heading'
+import { getReviews } from '@/lib/reviews'
 
-const ReviewsPage = () => {
+export default async function ReviewsPage() {
+	const reviews = await getReviews()
 	return (
 		<>
-			<h1>reviews</h1>
-			<p>Here we'll list all the reviews</p>
-			<ul>
-				<li>
-					<Link href='/reviews/hollow-knight'>Hollow Knight</Link>
-				</li>
-				<li>
-					<Link href='/reviews/stardew-valley'>Stardew Valley</Link>
-				</li>
+			<Heading>Reviews</Heading>
+			<ul className='flex flex-row flex-wrap gap-3'>
+				{reviews.map(review => (
+					<li
+						key={review.slug}
+						className='bg-white border rounded shadow w-80 hover:shadow-xl'
+					>
+						<Link href={`/reviews/${review.slug}`}>
+							<img
+								src={review.image}
+								alt=''
+								width='320'
+								height='180'
+								className='rounded-t'
+							/>
+							<h2 className='font-semibold font-orbitron text-center py-1'>
+								{review.title}
+							</h2>
+						</Link>
+					</li>
+				))}
 			</ul>
 		</>
 	)
 }
-export default ReviewsPage

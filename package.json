@@ -2,6 +2,8 @@
 	"name": "next-reviews",
 	"private": true,
 	"dependencies": {
+		"gray-matter": "^4.0.3",
+		"marked": "^7.0.4",
 		"next": "^13.4.19",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
@@ -12,6 +14,7 @@
 		"start": "next start"
 	},
 	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.15",
 		"postcss": "^8.4.28",
 		"tailwindcss": "^3.3.3"

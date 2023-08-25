@@ -1,9 +1,10 @@
-const AboutPage = () => {
+import Heading from '../../components/Heading'
+
+export default function AboutPage() {
 	return (
 		<>
-			<h1>About Site</h1>
+			<Heading>About Site</Heading>
 			<p>Here we'll write some site info</p>
 		</>
 	)
 }
-export default AboutPage
