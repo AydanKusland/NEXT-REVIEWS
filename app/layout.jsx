@@ -2,6 +2,13 @@ import './globals.css'
 import NavBar from '../components/NavBar'
 import { exo_2, orbitron } from './fonts'
 
+// way of writing meta tag data in next.js
+export const metadata = {
+	// template way of writing different titles
+	title: { default: 'Indie Gamer', template: '%s | Indie Gamer' },
+	description: 'Only the best indie games, reviewed for you'
+}
+
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en' className={`${orbitron.variable} ${exo_2.variable}`}>
