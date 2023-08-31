@@ -6,10 +6,12 @@ export const metadata = {
 }
 
 export default function AboutPage() {
+	console.log('[AboutPage] rendered')
+
 	return (
 		<>
 			<Heading>About Site</Heading>
-			<p>Here we'll write some site info</p>
+			<p>Here we &rsquo; ll write some site info</p>
 		</>
 	)
 }
