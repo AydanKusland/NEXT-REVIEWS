@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Heading from '@/components/Heading'
-import { getReviews } from '@/lib/reviews'
+import { getReviews, getSearchableReviews } from '@/lib/reviews'
 import PaginationBar from '@/components/PaginationBar'
 import SearchBox from '@/components/SearchBox'
 
@@ -13,16 +13,18 @@ const PAGE_SIZE = 6
 
 export default async function ReviewsPage({ searchParams }) {
 	const page = parsePageParam(searchParams.page ?? 1)
+	const { reviews, pageCount } = await getReviews(PAGE_SIZE, page)
+	const searchableReviews = await getSearchableReviews()
+
 	console.log('[ReviewsPage rendered]', page)
 
-	const { reviews, pageCount } = await getReviews(PAGE_SIZE, page)
 	return (
 		<>
 			<div className='m-auto'>
 				<Heading>Reviews</Heading>
 				<div className='flex justify-between pb-3'>
 					<PaginationBar href='/reviews' page={page} pageCount={pageCount} />
-					<SearchBox />
+					<SearchBox reviews={searchableReviews} />
 				</div>
 				<ul className='flex flex-row flex-wrap gap-3'>
 					{reviews.map((review, index) => (
